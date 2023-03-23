@@ -72,7 +72,7 @@ const Login = () => {
             {selectedUser ? (
               <div>
                 <p>
-                  Name: {users.find((user) => user.id === selectedUser).name}
+                 {users.find((user) => user.id === selectedUser).name}
                 </p>
                 <img
                   src={users.find((user) => user.id === selectedUser).avatar}
