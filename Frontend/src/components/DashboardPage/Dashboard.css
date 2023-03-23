@@ -1,0 +1,18 @@
+.my-table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  .my-table th {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #ccc;
+  }
+  
+  .my-table td {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
