@@ -5,7 +5,7 @@ import TodosTable from "../TodosTable/TodosTable";
 
 const DashboardPage = ({ user }) => {
   const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState('');
+  const [newTodo, setNewTodo] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,13 +36,17 @@ const DashboardPage = ({ user }) => {
 
   const handleAddTodo = async () => {
     try {
-      const response = await axios.post(`http://localhost:4000/todos`, {
-        title: newTodo,
-      }, {
-        headers: {
-          Authorization: `Basic enVja2VyOjEyMzQ1Ng==`,
+      const response = await axios.post(
+        `http://localhost:4000/todos`,
+        {
+          title: newTodo,
         },
-      });
+        {
+          headers: {
+            Authorization: `Basic enVja2VyOjEyMzQ1Ng==`,
+          },
+        }
+      );
       setTodos([...todos, response.data]);
       setNewTodo(newTodo);
       setNewTodo("");
@@ -58,8 +62,14 @@ const DashboardPage = ({ user }) => {
         <h2>Todos:</h2>
         <TodosTable todos={todos} onDelete={handleDeleteTodo} />
         <div>
-          <input type="text" value={newTodo} onChange={(e) => setNewTodo(e.target.value)} />
-          <button onClick={handleAddTodo} className="logouotBtn">Add Todo</button>
+          <input
+            type="text"
+            value={newTodo}
+            onChange={(e) => setNewTodo(e.target.value)}
+          />
+          <button onClick={handleAddTodo} className="logouotBtn">
+            Add Todo
+          </button>
         </div>
       </div>
     </div>

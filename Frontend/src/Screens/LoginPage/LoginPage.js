@@ -71,9 +71,7 @@ const Login = () => {
           <h4 className="text-primary text-center">
             {selectedUser ? (
               <div>
-                <p>
-                 {users.find((user) => user.id === selectedUser).name}
-                </p>
+                <p>{users.find((user) => user.id === selectedUser).name}</p>
                 <img
                   src={users.find((user) => user.id === selectedUser).avatar}
                   alt="avatar"
@@ -130,6 +128,5 @@ const Login = () => {
     </div>
   );
 };
-
 
 export default Login;

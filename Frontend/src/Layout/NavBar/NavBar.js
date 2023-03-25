@@ -7,6 +7,7 @@ function Navbar() {
 
   const { avatar, username } = userData[0];
   const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/login");
