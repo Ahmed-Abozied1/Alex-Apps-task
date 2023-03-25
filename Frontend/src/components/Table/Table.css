@@ -1,0 +1,52 @@
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 4rem;
+  
+}
+
+thead {
+  background-color: #eee;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: center;
+}
+td button {
+  text-align: center;
+}
+th {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+tr:nth-child(odd) {
+  background-color: #c7c6cf;
+}
+
+td {
+  border-bottom: 1px solid #ddd;
+}
+.tablerow {
+  background-color: #fff !important;
+  text-align: center !important;
+}
+.addBtn {
+  background-color: #c2060f;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 0.3rem;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+.togglebtn{
+  background-color: #1447a1;
+}

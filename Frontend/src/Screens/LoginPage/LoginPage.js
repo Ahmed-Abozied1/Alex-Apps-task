@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "./LoginPage.css";
-const Login = () => {
+const LoginScreen = () => {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedName, setSelectedName] = useState("");
@@ -38,7 +38,7 @@ const Login = () => {
         const userData = users.filter((user) => user.id === selectedUser);
 
         localStorage.setItem("user", JSON.stringify(userData));
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         console.log(error);
@@ -102,7 +102,7 @@ const Login = () => {
                 </span>
               </div>
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 placeholder="Password"
                 onChange={handlePasswordChange}
@@ -111,7 +111,7 @@ const Login = () => {
             <button
               onClick={handleLogin}
               type="button"
-              className="btn btn-secondary btn-block"
+              className="btn"
             >
               LOGIN
             </button>
@@ -129,4 +129,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginScreen;

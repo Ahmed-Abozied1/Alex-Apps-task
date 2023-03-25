@@ -1,76 +1,25 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, {  useContext } from "react";
 import "./Dashboard.css";
-import TodosTable from "../TodosTable/TodosTable";
+import Table from "../Table/Table";
+import { useRef } from "react";
+import { DataContext } from "../../todosContext";
+const DashboardPage = () => {
+   const {  handleAddTodo } = useContext(DataContext);
+  console.log("DashboardPage");
 
-const DashboardPage = ({ user }) => {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(`http://localhost:4000/todos`, {
-        headers: {
-          Authorization: `Basic enVja2VyOjEyMzQ1Ng==`,
-        },
-      });
-      setTodos(response.data);
-      console.log(response.data);
-    };
-    fetchData();
-  }, []);
-
-  const handleDeleteTodo = async (id) => {
-    try {
-      const response = await axios.delete(`http://localhost:4000/todos/${id}`, {
-        headers: {
-          Authorization: `Basic enVja2VyOjEyMzQ1Ng==`,
-        },
-      });
-      setTodos(todos.filter((todo) => todo.id !== id));
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleAddTodo = async () => {
-    try {
-      const response = await axios.post(
-        `http://localhost:4000/todos`,
-        {
-          title: newTodo,
-        },
-        {
-          headers: {
-            Authorization: `Basic enVja2VyOjEyMzQ1Ng==`,
-          },
-        }
-      );
-      setTodos([...todos, response.data]);
-      setNewTodo(newTodo);
-      setNewTodo("");
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const taskName = useRef();
 
   return (
     <div>
       <div>
-        <h2>Todos:</h2>
-        <TodosTable todos={todos} onDelete={handleDeleteTodo} />
-        <div>
-          <input
-            type="text"
-            value={newTodo}
-            onChange={(e) => setNewTodo(e.target.value)}
-          />
-          <button onClick={handleAddTodo} className="logouotBtn">
+        <h2 className="title">DashBoard</h2>
+        <Table />
+        <form className="title" onSubmit={(event) => handleAddTodo(event, taskName)}>
+          <input type="text" ref={taskName} />
+          <button type="submit" className="logouotBtn">
             Add Todo
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

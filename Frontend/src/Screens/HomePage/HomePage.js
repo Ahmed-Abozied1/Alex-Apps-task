@@ -1,16 +1,11 @@
-
-import DashboardPage from "../../components/DashboardPage/DashboardPage"
-import Layout from "../../Layout//Layout"
+import DashboardPage from "../../components/DashboardPage/DashboardPage";
+import Layout from "../../Layout//Layout";
 const HomeScreen = () => {
-return (
-      <Layout>
-       <div >
-        <DashboardPage/>
-        
-       </div>
-    
+  return (
+    <Layout>
+      <DashboardPage />
     </Layout>
-    )
-  }
-  
-  export default HomeScreen
+  );
+};
+
+export default HomeScreen;
